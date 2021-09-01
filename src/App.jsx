@@ -8,7 +8,9 @@ function App() {
 
   var gridItems = document.querySelectorAll(".grid-item");
 
-  var board = ["_", "_", "_", "_", "_", "_", "_", "_", "_"];
+  var [board, setBoard] = useState();
+  
+  setBoard = ["_", "_", "_", "_", "_", "_", "_", "_", "_"];
 
   var player = 1;
 
@@ -28,7 +30,7 @@ function App() {
     gridItems.forEach(function (item) 
     {
       var itemNum = parseInt(item.id)
-      document.getElementById(item.id).innerHTML = board[itemNum]
+      document.getElementById(item.id).innerHTML = setBoard[itemNum]
     })
   }
 
@@ -43,7 +45,6 @@ function App() {
     var index = item.getAttribute("data-index");
 
     var indexNum = parseInt(index);
-    console.log("player: ", player);
       //makes it so that if there's already an x or an o
       // on the grid you're trying to change it won't put an x or an o
       //also resets the player count for that turn
